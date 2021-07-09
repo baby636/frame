@@ -303,7 +303,7 @@ class TransactionFee extends React.Component {
     const feeData = {}
     levels.forEach(level => {
       feeData[level] = {}
-      feeData[level].fee = this.hexToDisplayValue(utils.numberToHex(gasLimit * parseInt(gasLevels[level], 16)))
+      feeData[level].fee = this.hexToDisplayValue(utils.numberToHex((gasLimit || 0) * parseInt(gasLevels[level], 16)))
       feeData[level].feeUSD = (feeData[level].fee * etherUSD).toFixed(2)
       feeData[level].feeTime = this.timeDisplay(gasLevels[level + 'Time'], 'gasData ' + level)
     })
@@ -326,7 +326,7 @@ class TransactionFee extends React.Component {
     const gasLimit = this.state.inputLimit || (this.state.gasLimitInputFocus ? 0 : parseInt(data.gas, 'hex'))
 
     const gasData = this.gasData(['slow', 'standard', 'fast', 'asap', 'custom'], gasLimit, etherUSD)
-    gasData.custom.fee = this.hexToDisplayValue(utils.numberToHex(gasLimit * parseInt(this.state.hoverGasPriceCustom || data.gasPrice, 'hex')))
+    gasData.custom.fee = this.hexToDisplayValue(utils.numberToHex((gasLimit || 0) * parseInt(this.state.hoverGasPriceCustom || data.gasPrice || 0, 'hex')))
     gasData.custom.feeUSD = (gasData.custom.fee * etherUSD).toFixed(2)
     gasData.custom.feeTime = this.timeDisplay(customTime, 'custom')
 
