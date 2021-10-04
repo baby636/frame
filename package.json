@@ -71,7 +71,7 @@
     "@githubprimer/octicons-react": "8.5.0",
     "@ledgerhq/hw-app-eth": "5.41.0",
     "@ledgerhq/hw-transport-node-hid": "5.41.0",
-    "@ledgerhq/hw-transport-web-ble": "5.41.0",
+    "@ledgerhq/hw-transport-web-ble": "6.6.0",
     "@mycrypto/eth-scan": "3.2.1",
     "abi-codec": "0.0.9",
     "auto-launch": "5.0.5",
